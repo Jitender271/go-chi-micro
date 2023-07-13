@@ -1,0 +1,11 @@
+[SERVICE]
+port="7000"
+debug=true
+
+[DATABASE]
+server="localhost"
+username=""
+password=""
+port="5432"
+schema="mock_api"
+connection_max=50
