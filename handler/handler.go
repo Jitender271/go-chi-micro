@@ -41,7 +41,7 @@ func createBlogs(store Service, w http.ResponseWriter, r *http.Request) {
         render.Render(w, r, httphandler.ErrInvalidRequest(err, "Invalid Request"))
         return
     }
-    recordSchema := data.Blog
+    recordSchema := data.Blogs
 
     //s := chi.URLParam(r,"db")
     services, err := store.CreateRecordCoreTeam(recordSchema)
@@ -66,7 +66,7 @@ func getRecordSetPost(store Service, w http.ResponseWriter, r *http.Request) {
 }
 
 type Request struct {
-    *model.Blog
+    *model.Blogs
 }
 
 func (a *Request) Bind(r *http.Request) error {

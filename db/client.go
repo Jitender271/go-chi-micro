@@ -7,8 +7,8 @@ import (
 
 type SqlClient interface {
 
-    CreateBlogRecord(bl *model.Blog) (model.Blog, error)
-    GetBlogs(string) ( model.Blog, error)
+    CreateBlogRecord(bl *model.Blogs) (model.Blogs, error)
+    GetBlogs(string) ( model.Blogs, error)
 
 }
 
@@ -27,10 +27,10 @@ type sqlClient struct {
 }
 
 
-func (c *sqlClient) CreateBlogRecord(bl *model.Blog) (model.Blog, error) {
+func (c *sqlClient) CreateBlogRecord(bl *model.Blogs) (model.Blogs, error) {
     return createBlog(bl)
 }
 
-func (c *sqlClient) GetBlogs(id string)  (model.Blog, error) {
+func (c *sqlClient) GetBlogs(id string)  (model.Blogs, error) {
     return getAllBlog(id)
 }

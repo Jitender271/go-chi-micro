@@ -7,8 +7,8 @@ import (
 )
 
 type Service interface {
-    CreateRecordCoreTeam(bl *model.Blog) (model.Blog, error)
-GetRecordSetPost(id string) (model.Blog, error)
+    CreateRecordCoreTeam(bl *model.Blogs) (model.Blogs, error)
+GetRecordSetPost(id string) (model.Blogs, error)
     
 }
 
@@ -23,20 +23,20 @@ type service struct {
 }
 
 
-func (s *service) CreateRecordCoreTeam(bl *model.Blog)( model.Blog, error){
+func (s *service) CreateRecordCoreTeam(bl *model.Blogs)( model.Blogs, error){
     record, err := s.sqlDB.CreateBlogRecord(bl)
     if err != nil {
         log.Info("Failure: mot getting data from Table", err)
-        return model.Blog{}, err
+        return model.Blogs{}, err
     }
     return record, nil
 }
 
-func (s *service) GetRecordSetPost(id string) (model.Blog, error) {
+func (s *service) GetRecordSetPost(id string) (model.Blogs, error) {
     record, err := s.sqlDB.GetBlogs(id)
     if err != nil {
         log.Info("Failure: mot getting data from Table", err)
-        return model.Blog{}, err
+        return model.Blogs{}, err
     }
     return record, nil
 }

@@ -8,25 +8,25 @@ import (
 )
 
 
-func createBlog(bl *model.Blog)(model.Blog, error){
+func createBlog(bl *model.Blogs)(model.Blogs, error){
     
     db:= GetDBConnection()
-    if err := db.Table("blog").Create(&bl).Error; err != nil{
-        log.Info("failure", model.Blog{}, err)
+    if err := db.Table("blogs").Create(&bl).Error; err != nil{
+        log.Info("failure", model.Blogs{}, err)
     }
-    recor := model.Blog{
-        Blogname: "saved",
+    recor := model.Blogs{
+        BlogName: "saved",
         BlogDetails: "done",
     }
     return recor, nil
 
 }
 
-func getAllBlog(id string) (model.Blog, error){
-    var record []model.Blog
+func getAllBlog(id string) (model.Blogs, error){
+    var record []model.Blogs
     db:= GetDBConnection()
     if err := db.Table("blog").Where("id=?", id).Find(&record).Error; err != nil {
-        log.Info("failure", []model.Blog{})
+        log.Info("failure", []model.Blogs{})
     }
     fmt.Println("print ====>", record[0])
     return record[0], nil
