@@ -37,7 +37,7 @@ func InitMysql() *sqlConn {
 // DB Initialization
 
 func initDB() (*sqlConn, error) {
-    log.Info("data==", config.GetYamlValues().DBConfig, config.GetYamlValues().DBConfig.Port)
+    log.Info(config.GetYamlValues().DBConfig, config.GetYamlValues().DBConfig.Port)
     dbUri := fmt.Sprintf("host=%s user=%s dbname=%s sslmode=disable password=%s",
      config.GetYamlValues().DBConfig.Server, config.GetYamlValues().DBConfig.Username, config.GetYamlValues().DBConfig.Schema, config.GetYamlValues().DBConfig.Password) //Build connection string
 
