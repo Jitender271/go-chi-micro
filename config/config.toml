@@ -7,5 +7,5 @@ server="localhost"
 username=""
 password=""
 port="5432"
-schema="mock_api"
+schema="test_db"
 connection_max=50
